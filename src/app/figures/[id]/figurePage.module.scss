@@ -1,0 +1,197 @@
+@use "../../../styles/config" as config;
+
+.pageContainer {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: config.$spacing-unit * 6;
+  padding-top: config.$spacing-unit * 4;
+  padding-bottom: config.$spacing-unit * 4;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  min-height: 500px;
+  background-color: var(--card-bg);
+  border-radius: config.$border-radius-main;
+  overflow: hidden;
+
+  img {
+    border-radius: config.$border-radius-main;
+  }
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+}
+
+.manufacturer {
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-bottom: config.$spacing-unit;
+}
+
+.name {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.character {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin-top: config.$spacing-unit;
+}
+
+.badge {
+  align-self: flex-start;
+  margin-top: config.$spacing-unit * 3;
+  padding: config.$spacing-unit config.$spacing-unit * 2;
+  border-radius: config.$spacing-unit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #ffffff;
+  background-color: var(--accent-color);
+}
+
+.section {
+  margin-top: config.$spacing-unit * 4;
+
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: config.$spacing-unit * 2;
+    border-bottom: 2px solid var(--bg-secondary);
+    padding-bottom: config.$spacing-unit;
+  }
+
+  p {
+    line-height: 1.7;
+    color: var(--text-secondary);
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      padding: config.$spacing-unit 0;
+      border-bottom: 1px solid var(--bg-secondary);
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: config.$spacing-unit * 2;
+}
+
+.editButton {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--text-secondary);
+  padding: config.$spacing-unit config.$spacing-unit * 2;
+  border-radius: config.$spacing-unit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: #e0e0e0;
+    border-color: var(--text-primary);
+  }
+}
+
+.actionButtons {
+  display: flex;
+  gap: config.$spacing-unit * 2;
+}
+
+.sealButton {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: config.$spacing-unit config.$spacing-unit * 2;
+  border-radius: config.$spacing-unit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: #c82333;
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}
+
+.sealedBadge {
+  background-color: var(--text-primary);
+  color: var(--bg-primary);
+  margin-top: config.$spacing-unit * 2;
+  margin-bottom: config.$spacing-unit;
+}
+
+@media (max-width: 992px) {
+  .pageContainer {
+    grid-template-columns: 1fr;
+    gap: config.$spacing-unit * 4;
+  }
+
+  .imageWrapper {
+    min-height: 400px;
+    max-height: 70vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .pageContainer {
+    padding-top: config.$spacing-unit * 2;
+    gap: config.$spacing-unit * 3;
+  }
+
+  .name {
+    font-size: 1.8rem;
+  }
+
+  .character {
+    font-size: 1rem;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .actionButtons {
+    width: 100%;
+    margin-top: config.$spacing-unit * 2;
+
+    .editButton,
+    .sealButton {
+      flex: 1;
+      text-align: center;
+      padding: config.$spacing-unit * 1.5;
+    }
+  }
+
+  .section h2 {
+    font-size: 1.2rem;
+  }
+}

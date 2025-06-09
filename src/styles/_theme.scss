@@ -1,0 +1,23 @@
+:root {
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F0F0F0; 
+  --text-primary: #111111;
+  --text-secondary: #555555;
+  --card-bg: #FFFFFF;
+  --card-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  --accent-color: #FF8C00;
+}
+
+[data-theme='dark'] {
+  --bg-primary: #121212;
+  --bg-secondary: #1E1E1E;
+  --text-primary: #EAEAEA;
+  --text-secondary: #AAAAAA;
+  --card-bg: #2A2A2A;
+  --card-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
+  --accent-color: #FFA500;
+}
+
+label{
+  color: #111111;
+}

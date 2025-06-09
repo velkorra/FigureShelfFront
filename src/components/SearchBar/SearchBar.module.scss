@@ -1,0 +1,131 @@
+@use "../../styles/config" as config;
+
+.searchBarContainer {
+  padding: config.$spacing-unit * 3;
+  margin-bottom: config.$spacing-unit * 3;
+}
+
+.searchForm {
+  display: flex;
+  gap: config.$spacing-unit * 2;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.searchInputWrapper {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.searchIcon {
+  position: absolute;
+  left: config.$spacing-unit * 2;
+  color: var(--text-secondary);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.searchInput {
+  width: 100%;
+  padding: config.$spacing-unit * 2;
+  padding-left: config.$spacing-unit * 6;
+  border: 2px solid transparent;
+  border-radius: config.$border-radius-main;
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+  font-size: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+  &::placeholder {
+    color: var(--text-secondary);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(255, 140, 0, 0.1);
+  }
+
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.filterButton {
+  display: flex;
+  align-items: center;
+  gap: config.$spacing-unit;
+  padding: config.$spacing-unit * 2 config.$spacing-unit * 3;
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: config.$border-radius-main;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(255, 140, 0, 0.2);
+
+  &:hover {
+    background-color: #e67e00;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(255, 140, 0, 0.3);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.filterIcon {
+  color: currentColor;
+}
+
+@media (max-width: 768px) {
+  .searchBarContainer {
+    padding: config.$spacing-unit * 2;
+  }
+
+  .searchForm {
+    flex-direction: column;
+    gap: config.$spacing-unit * 2;
+  }
+
+  .searchInputWrapper {
+    width: 100%;
+  }
+
+  .filterButton {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .searchInput {
+    font-size: 14px;
+    padding: config.$spacing-unit * 1.5;
+    padding-left: config.$spacing-unit * 5;
+  }
+
+  .searchIcon {
+    left: config.$spacing-unit * 1.5;
+    width: 18px;
+    height: 18px;
+  }
+
+  .filterButton {
+    padding: config.$spacing-unit * 1.5 config.$spacing-unit * 2;
+    font-size: 14px;
+  }
+
+  .filterIcon {
+    width: 18px;
+    height: 18px;
+  }
+}

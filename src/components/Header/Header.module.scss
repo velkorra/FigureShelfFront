@@ -1,0 +1,154 @@
+@use "../../styles/config" as config;
+
+.header {
+  background-image: url("/Marine.png");
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.6) 15%,
+    rgba(0, 0, 0, 0.6) 85%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  align-items: center;
+  padding: config.$spacing-unit * 2 0;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.nav {
+  display: flex;
+  gap: config.$spacing-unit * 4;
+}
+
+.navLink {
+  font-size: 1.1rem;
+  font-weight: 500;
+  position: relative;
+  padding-bottom: config.$spacing-unit;
+  transition: color 0.2s;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    color: #f0f0f0;
+
+    &::after {
+      transform: scaleX(1);
+    }
+  }
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: config.$spacing-unit;
+  cursor: pointer;
+  font-weight: 500;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.avatar {
+  border-radius: 50%;
+  border: 2px solid #fff;
+}
+
+.arrow {
+  font-size: 0.75rem;
+  transition: transform 0.2s ease-in-out;
+}
+
+.profile:hover .arrow {
+  transform: rotate(180deg);
+}
+
+.addFigureButton {
+  background-color: var(--accent-color);
+  color: white;
+  padding: config.$spacing-unit config.$spacing-unit * 2;
+  border-radius: config.$spacing-unit;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-shadow: none;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: config.$spacing-unit * 3;
+}
+
+.rightControls {
+  display: flex;
+  align-items: center;
+  gap: config.$spacing-unit * 4;
+}
+
+@media (max-width: 768px) {
+  .headerContent {
+    flex-direction: column;
+    gap: config.$spacing-unit * 2;
+    padding-top: config.$spacing-unit * 3;
+    padding-bottom: config.$spacing-unit * 3;
+  }
+
+  .nav {
+    display: none; 
+  }
+
+  .rightControls {
+    width: 100%;
+    justify-content: space-between; 
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .addFigureButton {
+    padding: config.$spacing-unit config.$spacing-unit;
+    font-size: 0.9rem;
+  }
+
+  .profile {
+    gap: config.$spacing-unit;
+
+    span:not(.arrow) {
+      display: none;
+    }
+  }
+}

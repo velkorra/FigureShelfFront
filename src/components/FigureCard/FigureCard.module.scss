@@ -1,0 +1,80 @@
+@use "../../styles/config" as config;
+@use "sass:math";
+
+.card {
+  background-color: var(--card-bg);
+  color: var(--text-secondary);
+  border-radius: config.$border-radius-main;
+  padding: config.$spacing-unit * 2;
+  box-shadow: var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: config.$spacing-unit;
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+}
+
+.imageContainer {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: math.div(config.$border-radius-main, 2);
+  overflow: hidden;
+}
+
+
+.likeButton {
+  position: absolute;
+  top: config.$spacing-unit;
+  right: config.$spacing-unit;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.manufacturer {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.4;
+  min-height: 2.8em;
+}
+
+.tag {
+  padding: math.div(config.$spacing-unit, 2) config.$spacing-unit;
+  border-radius: config.$spacing-unit;
+  font-size: 0.75rem;
+  font-weight: 700;
+  align-self: flex-start;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.preorder {
+  background-color: #ff8c00;
+}
+
+.available {
+  background-color: #28a745;
+}
+
+.archived {
+  background-color: #6c757d;
+}
+
+.cardLink {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}

@@ -1,0 +1,151 @@
+@use "../../styles/config" as config;
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: grid;
+  place-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background-color: var(--bg-primary);
+  padding: config.$spacing-unit * 4;
+  border-radius: config.$border-radius-main;
+  width: 90%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: config.$spacing-unit * 3;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.title {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 1.5rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: config.$spacing-unit;
+
+  .label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+    padding: config.$spacing-unit * 1.5;
+    border: 1px solid var(--bg-secondary);
+    background-color: var(--bg-secondary);
+    border-radius: config.$spacing-unit;
+    color: var(--text-primary);
+    font-size: 1rem;
+
+    &:focus {
+      outline: none;
+      border-color: var(--accent-color);
+    }
+  }
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: config.$spacing-unit * 2;
+  margin-top: config.$spacing-unit * 2;
+}
+
+.cancelButton,
+.submitButton {
+  padding: config.$spacing-unit * 1.5 config.$spacing-unit * 3;
+  border-radius: config.$spacing-unit;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cancelButton {
+  background-color: var(--bg-secondary);
+  color: var(--text-secondary);
+  &:hover {
+    background-color: #e0e0e0;
+  }
+}
+
+.submitButton {
+  background-color: var(--accent-color);
+  color: white;
+  &:hover {
+    opacity: 0.9;
+  }
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.error {
+  color: #ff4d4d;
+  background-color: rgba(255, 77, 77, 0.1);
+  padding: config.$spacing-unit;
+  border-radius: config.$spacing-unit;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: config.$spacing-unit * 2;
+}
+
+.formGridTriple {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: config.$spacing-unit * 2;
+}
+
+@media (max-width: 480px) {
+  .modal {
+    padding: config.$spacing-unit * 2;
+    gap: config.$spacing-unit * 2;
+    width: 95%;
+  }
+
+  .title {
+    font-size: 1.2rem;
+  }
+
+  .formGrid,
+  .formGridTriple {
+    grid-template-columns: 1fr;
+  }
+
+  .label {
+    margin-top: config.$spacing-unit;
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  .actions {
+    flex-direction: column-reverse;
+
+    .submitButton,
+    .cancelButton {
+      width: 100%;
+    }
+  }
+}
