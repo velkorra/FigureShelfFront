@@ -13,6 +13,9 @@
 }
 
 .modal {
+    h2{
+        color: black;
+    }
   background-color: var(--bg-primary);
   padding: config.$spacing-unit * 4;
   border-radius: config.$border-radius-main;

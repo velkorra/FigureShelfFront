@@ -19,7 +19,7 @@ export class ApiError extends Error {
 const getBaseUrl = () => {
   if (typeof window !== "undefined") return "/api";
   if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}/api`;
-  return `http://api.figureshelf.local`;
+  return `https://api.figureshelf.local`;
 };
 
 const getCookie = (name: string): string | undefined => {
@@ -209,14 +209,3 @@ export const apiClient = {
   delete: <T>(endpoint: string, options?: RequestInit, schema?: z.ZodType<T>) =>
     request<T>(endpoint, { ...options, method: "DELETE" }, schema),
 };
-
-const CharacterSchema = z.object({
-  id: z.string(),
-  name: z.string(),
-  franchiseName: z.string(),
-});
-
-const ManufacturerSchema = z.object({
-  id: z.string(),
-  name: z.string(),
-});
